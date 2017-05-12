@@ -1,7 +1,7 @@
 //Back-End Logic:
 function Pizza(size, toppings) {
   this.size = size;
-  this.toppings = [];
+  this.toppings = toppings;
 }
 
 //function Toppings(meat, veggie) {
@@ -11,21 +11,25 @@ function Pizza(size, toppings) {
 
 Pizza.prototype.getPrice = function() {
     var price = 10;
-  if (this.size === "medium"); {
+  if (this.size === "medium") {
     price += 2;
   }
-  if (this.size === "large"); {
+  if (this.size === "large") {
     price += 4;
   }
-  if (this.size === "extra-large");  {
+  if (this.size === "extra-large")  {
     price += 6;
   }
-  if (this.toppings === "meat"); {
+
+  inputtedMeat.forEach(function() {
     price += 2;
-  }
-  if (this.toppings === "veggies"); {
-    price += 1;
-  }
+  });
+  //if (this.toppings === "meat") {
+  //  price += 2;
+  //}
+  //if (this.toppings === "veggies") {
+  //  price += 1;
+//  }
 return price;
 
 }
@@ -38,11 +42,10 @@ $(document).ready(function() {
     var inputtedSize = $("input[name=size]:checked").val();
     var inputtedMeat = $("input[name=meat]:checked").val();
     var inputtedVeggies = $("input[name=veggie]:checked").val();
-    //var inputtedToppings = $("input[name=toppings]:checked").val();
-    //var inputtedToppings = $(this).val();
+
 
     //var newToppings = new Toppings(inputtedMeat, inputtedVeggies);
-    var newPizza = new Pizza(inputtedSize, []);
+    var newPizza = new Pizza(inputtedSize, [inputtedVeggies, inputtedMeat]);
 
 
     $("#output").text("Your total is: $" + newPizza.getPrice() + ".00");
