@@ -4,17 +4,17 @@ function Pizza(size, toppings) {
   this.toppings = [];
 }
 
-function Toppings(meat, veggie) {
-  this.meat = 2;
-  this.veggie = 1;
-}
+//function Toppings(meat, veggie) {
+  //this.meat = 2;
+  //this.veggie = 1;
+//}
 
 Pizza.prototype.getPrice = function() {
     var price = 10;
   if (this.size === "medium"); {
     price += 2;
   }
-  if (this.size === "large");  {
+  if (this.size === "large"); {
     price += 4;
   }
   if (this.size === "extra-large");  {
@@ -34,17 +34,18 @@ return price;
 $(document).ready(function() {
   $("#formOne").submit(function(event) {
 
-    console.log("hello");
-    var inputtedSize = parseInt($("input[name=size]:checked").val());
-    var inputtedMeat = parseInt($("input[name=meat]:checked").val());
-    var inputtedVeggies = parseInt($("input[name=veggie]:checked").val());
+    //console.log("hello");
+    var inputtedSize = $("input[name=size]:checked").val();
+    var inputtedMeat = $("input[name=meat]:checked").val();
+    var inputtedVeggies = $("input[name=veggie]:checked").val();
     //var inputtedToppings = $("input[name=toppings]:checked").val();
     //var inputtedToppings = $(this).val();
 
-    var newPizza = new Pizza(inputtedSize, inputtedMeat, inputtedVeggies);
-    var newToppings = new Toppings(inputtedMeat, inputtedVeggies);
+    //var newToppings = new Toppings(inputtedMeat, inputtedVeggies);
+    var newPizza = new Pizza(inputtedSize, []);
 
-    $("#output").text("Your total cost is: $" + newPizza.getPrice() + ".00");
+
+    $("#output").text("Your total is: $" + newPizza.getPrice() + ".00");
     event.preventDefault();
   });
 });
