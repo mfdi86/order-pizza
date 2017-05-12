@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1>Order Pizza!</h1>
-      <form id="formSize">
+      <form id="formOne">
         <div class="size">
           <label for="size"> Select your size:</label><br><br>
           <div class="radio">
@@ -38,9 +38,6 @@
             </label><br><br>
           </div>
         </div>
-
-      </form>
-      <form id ="formToppings">
         <div class="toppings">
           <label for="toppings"> Select your toppings:</label><br><br>
           <input type="checkbox" name="item" value="pepperoni">Pepperoni  $2.00<br>
@@ -48,12 +45,13 @@
           <input type="checkbox" name="item" value="spinach">Spinach  $1.00<br>
           <input type="checkbox" name="item" value="olives">Olives  $1.00<br>
           <input type="checkbox" name="item" value="peppers">Peppers  $1.00<br>
-        </div>
-    </div>
+        </div><br><br>
+         <button type="submit" name="button">Submit!</button>
       </form>
-
-
-
+      <div>
+        <h2 id="output"></h2>
+      </div>
+    </div>
     </div>
   </body>
 </html>
