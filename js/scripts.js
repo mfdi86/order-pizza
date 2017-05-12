@@ -34,14 +34,15 @@ return price;
 $(document).ready(function() {
   $("#formOne").submit(function(event) {
 
-    var inputtedSize = $(this.size("input[name=size]:checked")).val();
-    var inputtedMeat = $(this.toppings("input[name=meat]:checked")).val();
-    var inputtedVeggies = $(this.toppings("input[name=veggie]:checked")).val();
+    console.log("hello");
+    var inputtedSize = parseInt($("input[name=size]:checked").val());
+    var inputtedMeat = parseInt($("input[name=meat]:checked").val());
+    var inputtedVeggies = parseInt($("input[name=veggie]:checked").val());
     //var inputtedToppings = $("input[name=toppings]:checked").val();
     //var inputtedToppings = $(this).val();
 
-    var newPizza = new Pizza(inputtedSize, inputtedToppings);
-    var newToppings = new Toppings(inPuttedMeat, inputtedVeggies);
+    var newPizza = new Pizza(inputtedSize, inputtedMeat, inputtedVeggies);
+    var newToppings = new Toppings(inputtedMeat, inputtedVeggies);
 
     $("#output").text("Your total cost is: $" + newPizza.getPrice() + ".00");
     event.preventDefault();
