@@ -1,7 +1,7 @@
 //Back-End Logic:
 function Pizza(size, toppings) {
   this.size = size;
-  this.toppings = toppings;
+  this.toppings = [];
 
 }
 
@@ -24,7 +24,8 @@ $(document).ready(function() {
   $("#formOne").submit(function(event) {
 
     var inputtedSize = $("input[name=size]:checked").val();
-    var inputtedToppings = $("input[name=toppings]:checked").val();
+    //var inputtedToppings = $("input[name=toppings]:checked").val();
+    var inputtedToppings = $(this).val();
 
 
     var newPizza = new Pizza(inputtedSize, inputtedToppings);
