@@ -5,10 +5,19 @@ function Pizza(size, toppings) {
 
 }
 
-Pizza.prototype.getPrice = function()
+Pizza.prototype.getPrice = function() {
     var price = 10;
-//
+  if (this.size === "medium") {
+    price += 2;
+  }
+  if (this.size === "large")  {
+    price += 4;
+  }
+  if (this.size === "extra-large")  {
+    price += 6;
+  }
 return price;
+}
 
 //Front-End Logic:
 $(document).ready(function() {
