@@ -1,51 +1,45 @@
 //Back-End Logic:
-function Pizza(size, toppings) {
+function Pizza(size, toppingsArray) {
   this.size = size;
-  this.toppings = toppings;
+  this.toppings = toppingsArray;
 }
 
-//function Toppings(meat, veggie) {
-  //this.meat = 2;
-  //this.veggie = 1;
-//}
-
 Pizza.prototype.getPrice = function() {
-    var price = 10;
+  var price = 10;
   if (this.size === "medium") {
     price += 2;
   }
   if (this.size === "large") {
     price += 4;
   }
-  if (this.size === "extra-large")  {
+  if (this.size === "extra-large") {
     price += 6;
   }
+  for (i = 0; i < this.toppings.length; i++) {
+    if (this.toppings[i] === "meat") {
+      price += 2;
+    }
+    if (this.toppings[i] === "veggie") {
+      price += 1;
 
-  inputtedMeat.forEach(function() {
-    price += 2;
-  });
-  //if (this.toppings === "meat") {
-  //  price += 2;
-  //}
-  //if (this.toppings === "veggies") {
-  //  price += 1;
-//  }
+    }
+  }
+
 return price;
 
-}
+};
 //Front-End Logic:
 
 $(document).ready(function() {
   $("#formOne").submit(function(event) {
-
-    //console.log("hello");
+    var toppingsArray = [];
     var inputtedSize = $("input[name=size]:checked").val();
-    var inputtedMeat = $("input[name=meat]:checked").val();
-    var inputtedVeggies = $("input[name=veggie]:checked").val();
+    $("input:checkbox[name=topping]:checked").each(function() {
+      toppingsArray.push($(this).val());
+    });
 
-
-    //var newToppings = new Toppings(inputtedMeat, inputtedVeggies);
-    var newPizza = new Pizza(inputtedSize, [inputtedVeggies, inputtedMeat]);
+    var newPizza = new Pizza(inputtedSize, toppingsArray);
+    console.log(newPizza);
 
 
     $("#output").text("Your total is: $" + newPizza.getPrice() + ".00");

@@ -9,7 +9,9 @@
   </head>
   <body>
     <div class="container">
+      <div class="jumbotron">
       <h1>Order Pizza!</h1>
+      </div>
       <form id="formOne">
         <div class="size">
           <label for="size"> Select your size:</label><br><br>
@@ -40,16 +42,17 @@
         </div>
         <div class="toppings">
           <label for="toppings"> Select your toppings:</label><br><br>
-          <input type="checkbox" name="topping" value="Pepperoni">Pepperoni  $2.00<br>
-          <input type="checkbox" name="topping" value="Sausage">Sausage  $2.00<br>
-          <input type="checkbox" name="topping" value="Spinach">Spinach  $1.00<br>
-          <input type="checkbox" name="topping" value="Olives">Olives  $1.00<br>
-          <input type="checkbox" name="topping" value="Peppers">Peppers  $1.00<br>
+          <input type="checkbox" name="topping" value="meat">Pepperoni  $2.00<br>
+          <input type="checkbox" name="topping" value="meat">Sausage  $2.00<br>
+          <input type="checkbox" name="topping" value="veggie">Spinach  $1.00<br>
+          <input type="checkbox" name="topping" value="veggie">Olives  $1.00<br>
+          <input type="checkbox" name="topping" value="veggie">Peppers  $1.00<br>
         </div><br><br>
          <button type="submit" name="button">Submit!</button>
       </form>
       <div>
         <h2 id="output"></h2>
+        <br><br>
       </div>
     </div>
     </div>
